@@ -1,0 +1,159 @@
+@use "variables" as *;
+// @use "vars2";
+@use "mixins" as *;
+
+@import url("./reset.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@font-face {
+  font-family: icons;
+  src: url(icons.ttf);
+}
+
+:root {
+  font-size: 62.5%;
+ 
+}
+::selection{
+  background-color: $grey;
+}
+::placeholder{
+  color: rgba($white, 0.5);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+font-family: roboto;
+  background-color: $bggrey;
+  * {
+    line-height: calc(2px + 2ex + 2px);
+  }
+}
+
+.app{
+  width: 90%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  &__form{
+    background-color: $green;
+    padding: 2rem;
+    border-radius:0.8rem;
+    position: relative;
+    &__input{
+      font-size: 2rem;
+      display: block;
+      width: calc(100% - 3.5rem);
+      border: none;
+      outline: none;
+      background-color: $whitelight;
+      color: $white;
+      padding: 2.3rem 2.8rem;
+      padding-right: 6.4rem;
+      border-radius: 0.7rem;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      &--error{
+        background-color: $red;
+      }
+      
+    }
+    &__submit{
+
+      background-color: $white;
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      aspect-ratio: 1/1;
+      height: calc(100% - 4rem);
+      border: none;
+      border-radius: 50%;
+      &:before{
+        content: "\e802";
+        font-family: icons;
+        display: block;
+        position: absolute;
+        font-size: 3rem;
+        padding-top: 3rem;
+        color: $green;
+        top: 0rem;
+        left: 0rem;
+        
+        width: 100%;
+        
+        
+      }
+      &:hover:before{
+        color: rgba($green,0.7);
+      }
+    }
+    }
+    &__list{
+      padding: 2rem;
+      &__item{
+        display: grid;
+        grid-template-columns: auto 50px 50px;
+        gap:1rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        background-color: $white;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 5px 0px rgba($black, 0.2);
+        align-items: center;
+        .text{
+          
+          font-size: 1.8rem;
+          &--checked{
+            text-decoration: line-through;
+            text-decoration-color: $green;
+            text-decoration-thickness: 1.2px;
+          }
+          &:before{
+            content:"\00a0";
+            
+          }&:after{
+            content:"\00a0";
+            
+          }
+        }
+        .icon{
+          
+          position: relative;
+        border-left: 1px solid grey;
+        min-height: 2.5rem;
+        &:nth-child(2){
+          border:none;
+        }
+        &:after{
+          
+          font-family: icons;
+          position: absolute;
+          left: 1.8rem;
+          top: 0.5rem;
+          width: 100%;
+          font-size: 2.75rem;
+          color: $green;
+        }
+        &:hover:after{
+          color: $red;
+        }
+        &--delete:after{
+          content: "\E801";
+        }
+        &--check:after{
+          content: "\F096";
+          top:0.6rem;
+        }
+        &--checked:after{
+          content: "\E800";
+          top:0.6rem;
+
+        }
+      }}
+    }
+    
+}
+
+
+
+
